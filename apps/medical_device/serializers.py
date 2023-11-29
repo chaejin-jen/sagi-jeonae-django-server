@@ -7,3 +7,8 @@ class ManufacturerApiParamsSerializer(serializers.Serializer):
     pageNo = serializers.IntegerField(required=False)
     numOfRows = serializers.IntegerField(required=False)
     Meddev_entp_no = serializers.CharField(required=False)
+
+class ProductApiParamsSerializer(serializers.Serializer):
+    pageNo = serializers.IntegerField(required=False)
+    numOfRows = serializers.IntegerField(required=False)
+    PRDLST_NM = serializers.CharField(required=False)
