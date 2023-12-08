@@ -9,6 +9,9 @@ from .serializers import ManufacturerApiParamsSerializer, ProductApiParamsSerial
 from .services.manufacturer_info import fetch_manufacturer_info
 from .services.product_info import fetch_product_info
 
+from common.data.formatters.data_go_response_formatter import DataGoResponseFormatter
+from .data.formatters.mappings import medical_device_manufacturer_mapping, medical_device_product_mapping
+
 # Create your views here.
 @api_view(['GET'])
 def getManufacturerInfo(request):
@@ -18,10 +21,12 @@ def getManufacturerInfo(request):
         return Response({"error": serializer.errors}, status=HTTP_400_BAD_REQUEST)
 
     params = serializer.validated_data
-    manufacturer_data = fetch_manufacturer_info(params)
+    manufacturer_response = fetch_manufacturer_info(params)
     try:
-        if manufacturer_data:
-            return Response(manufacturer_data)
+        if manufacturer_response:
+            manufacturer_formatter = DataGoResponseFormatter(medical_device_manufacturer_mapping)
+
+            return Response(manufacturer_formatter.format_response(manufacturer_response))
         else:
             return Response({"error": "정보를 가져올 수 없습니다."}, status=HTTP_404_NOT_FOUND)
     except ValueError as e:
@@ -35,10 +40,12 @@ def getProductInfo(request):
         return Response({"error": serializer.errors}, status=HTTP_400_BAD_REQUEST)
 
     params = serializer.validated_data
-    manufacturer_data = fetch_product_info(params)
+    product_response = fetch_product_info(params)
     try:
-        if manufacturer_data:
-            return Response(manufacturer_data)
+        if product_response:
+            product_formatter = DataGoResponseFormatter(medical_device_product_mapping)
+
+            return Response(product_formatter.format_response(product_response))
         else:
             return Response({"error": "정보를 가져올 수 없습니다."}, status=HTTP_404_NOT_FOUND)
     except ValueError as e:
