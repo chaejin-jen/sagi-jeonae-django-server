@@ -21,7 +21,7 @@ def extractProductInfo(request):
             url = unquote(url)
             product_info = parser.parse(url)
             if product_info:
-                return Response(product_info)
+                return Response({'items' : [product_info]})
             else:
                 return Response({"error": "정보를 가져올 수 없습니다."}, status=HTTP_404_NOT_FOUND)
     except ValueError as e:
