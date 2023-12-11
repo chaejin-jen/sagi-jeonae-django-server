@@ -40,6 +40,7 @@ def getProductInfo(request):
         return Response({"error": serializer.errors}, status=HTTP_400_BAD_REQUEST)
 
     params = serializer.validated_data
+    print(params)
     product_response = fetch_product_info(params)
     try:
         if product_response:
