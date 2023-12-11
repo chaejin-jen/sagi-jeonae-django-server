@@ -1,3 +1,4 @@
+# MdlpMnfcturPrmisnInfoService01
 medical_device_manufacturer_mapping = {
     "ENTRPS": "업소명",
     "INDUTY_TYPE": "업종구분코드_S10",
@@ -9,7 +10,8 @@ medical_device_manufacturer_mapping = {
     "BRNO": "업허가번호",
 }
 
-medical_device_product_mapping = {
+# MdeqPrdlstInfoService02
+medical_device_item_mapping = {
     "MDEQ_PRDLST_SN": "의료기기품목일련번호",
     "SIZE_INFO": "치수",
     "CHRTR_INFO": "특성명",
@@ -24,14 +26,38 @@ medical_device_product_mapping = {
     "PRMSN_DCLR_DIVS_NM": "허가신고구분",
     "MEDDEV_ITEM_NO": "의료기기품목허가번호",
     "PRDLST_NM": "품목명",
-    "PRMSN_YMD": "허가일자",
+    "PRMSN_YMD": "품목허가일자",
     "RTRCN_DSCTN_DIVS_CD": "취소취하구분코드",
     "RTRCN_DSCTN_DT": "취소취하일자",
-    "PRDT_NM_INFO": "상품명",
+    "PRDT_NM_INFO": "제품명",
     "MDEQ_CLSF_NO": "분류번호",
     "TYPE_INFO": "모델명",
     "CLSF_NO_GRAD_CD": "등급",
     "MNFT_CLNT_NM": "제조의뢰자",
     "MNSC_NM": "제조자",
     "MNSC_NATN_CD": "제조국",
+}
+
+# MdeqStdCdPrdtInfoService03
+medical_device_product_mapping = {
+    "UDIDI_CD": "의료기기일련번호",
+    "PRDLST_NM": "품목명",
+    "MDEQ_CLSF_NO": "분류번호",
+    "CLSF_NO_GRAD_CD": "등급",
+    "PERMIT_NO": "품목허가번호",
+    "PRMSN_YMD": "품목허가일자",
+    "FOML_INFO": "모델명",
+    "PRDT_NM_INFO": "제품명",
+    "HMBD_TRSPT_MDEQ_YN": "인체이식형여부",
+    "DSPSBL_MDEQ_YN": "일회용여부",
+    "TRCK_MNG_TRGT_YN": "추적관리대상여부",
+    "TOTAL_DEV": "한벌구성의료기기여부",
+    "CMBNMD_YN": "조합의료기기여부",
+    "USE_BEFORE_STRLZT_NEED_YN": "사용전멸균필요여부",
+    "STERILIZATION_METHOD_NM": "멸균방법",
+    "USE_PURPS_CONT": "사용목적",
+    "STRG_CND_INFO": "저장조건",
+    "CIRC_CND_INFO": "유통취급조건",
+    "MNFT_IPRT_ENTP_NM": "제조수입업체명",
+    "RCPRSLRY_TRGT_YN": "요양급여대상여부",
 }
