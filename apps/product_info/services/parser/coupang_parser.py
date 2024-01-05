@@ -27,6 +27,7 @@ class CoupangParser(BaseParser):
         path = parsed_url.path
 
         query_params = dict(pair.split('=') for pair in parsed_url.query.split('&'))
+        print(f'\n\n query_params {query_params}')
 
         new_path = f"{path}/items/{query_params['itemId']}/vendoritems/{query_params['vendorItemId']}"
 

@@ -17,11 +17,12 @@ class ApiRequestHandler(HttpRequestHandler):
     def send_api_request(self, endpoint, params=None, method='GET'):
         url = f"{self.host}/{endpoint}?{self._prepare_request_data(params)}"
         response = self.send_request(url, method=method)
+        print(f'\n\n========\n{response}')
         response_data = json.loads(response)
         header = response_data.get('header', {})
         body = response_data.get('body', {})
         return body if header.get('resultCode') == '00' else self.handle_api_error(header)
-    
+
     def _prepare_request_data(self, params : {str:str}):
         load_dotenv(self.dotenv_path)
         params['serviceKey'] = os.getenv(self.service_key_name)

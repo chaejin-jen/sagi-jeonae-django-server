@@ -25,12 +25,17 @@ SECRET_KEY = 'django-insecure-u22nh0fh14(cqk&hth085cf8*=_%)ka-1iwqq+q4#3)!e76dpt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'xn--9i1b67o.xn--ok0bn46a3wdpsc.xn--hk3b17f.xn--3e0b707e',
+    '미니.사기전에.서버.한국',
+    '*',
+    # '192.168.2.1'
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,6 +77,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'product_hub.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = [
+    'http://xn--ok0bn46a3wdpsc.xn--yq5b.xn--3e0b707e',
+    'http://xn--ok0bn46a3wdpsc.xn--yq5b.xn--3e0b707e/',
+]
+CORS_ORIGIN_WHITELIST = [
+    # 'http://127.0.0.1:80',
+    # 'http://localhost:80',
+    # 'http://localhost:23465'
+    'http://xn--ok0bn46a3wdpsc.xn--yq5b.xn--3e0b707e',
+    'http://xn--ok0bn46a3wdpsc.xn--yq5b.xn--3e0b707e/',
+    # 'http://xn--ok0bn46a3wdpsc.xn--yq5b.xn--3e0b707e',
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    # 'DELETE',
+    'GET',
+    # 'OPTIONS',
+    # 'PATCH',
+    # 'POST',
+    # 'PUT',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
